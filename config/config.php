@@ -1,8 +1,15 @@
 <?php
+// Database Gabriel
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "baber_agendar";
+
+// Database joão
+// $servername = "localhost";
+// $username = "jprg";
+// $password = "96326106";
+// $dbname = "baber_agendar";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

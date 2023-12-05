@@ -63,7 +63,7 @@ unset($_GET['error']);
         </div>
         <div class="row mt-4">
             <div class="col-md-6 offset-md-3">
-                <form action="processar_agendamento.php" method="post">
+                <form action="../controllers/processar_agendamento.php" method="post">
                     <div class="mb-3">
                         <label for="data" class="form-label">Selecione a data:</label>
                         <input type="date" id="data" name="data" class="form-control" required>
@@ -94,7 +94,7 @@ unset($_GET['error']);
 
                 // Realize uma chamada AJAX para obter os horários disponíveis para a data selecionada
                 $.ajax({
-                    url: 'obter_horarios_disponiveis.php',
+                    url: '../controllers/obter_horarios_disponiveis.php',
                     type: 'POST',
                     data: { data: selectedDate },
                     success: function (response) {
