@@ -51,7 +51,7 @@ unset($_GET['error']);
     <div class="container mt-5">
         <h1 class="text-center">Escolha um horário</h1>
 
-        <div class="container mt-4">
+        <div class="container mt-5">
         <!-- Mensagem de sucesso ou erro -->
             <?php
                 if (!empty($msgS)) {
@@ -81,8 +81,6 @@ unset($_GET['error']);
             </div>
         </div>
         <h2 class="mt-5 text-center">Horario de atendimento de 7:00 as 17:00</h2>
-        <!-- <h3 class="mt-5 text-center">Data/Horarios Disponiveis</h3> -->
-        <!-- <?php include 'disponibilidade.php'; ?> -->
     </div>
 
     <script src="https://unpkg.com/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
