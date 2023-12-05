@@ -53,7 +53,7 @@ if (!isset($_SESSION['usuario_logado'])) {
                     </a>
                 </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.php">
+                    <a class="nav-link" href="../controllers/logout.php">
                         <i class="fas fa-sign-out-alt"></i> <!-- Ícone de saída -->
                         Sair
                     </a>

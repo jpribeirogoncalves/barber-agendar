@@ -10,7 +10,7 @@ if (isset($_SESSION['usuario_logado'])) {
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    include 'config.php';
+    include '../config/config.php';
 
     // Coleta os dados do formulário
     $nome = $_POST['nome'];

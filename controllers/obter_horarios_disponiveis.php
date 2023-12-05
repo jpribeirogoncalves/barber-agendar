@@ -2,7 +2,7 @@
 // Arquivo obter_horarios_disponiveis.php
 
 // Inclua o arquivo de configuração do banco de dados
-include 'config.php';
+include '../config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['data'])) {
     $data_selecionada = date('Y-m-d', strtotime($_POST['data']));

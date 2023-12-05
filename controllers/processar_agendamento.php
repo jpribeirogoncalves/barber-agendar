@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config/config.php';
 
 $msgR = '';
 $msgS = '';
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['msgS'] = $msgS;
     
     // Redirecionar de volta para a página do formulário
-    header('Location: agendar.php?success=' . urlencode($msgS) . '&error=' . urlencode($msgR));
+    header('Location: ../views/agendar.php?success=' . urlencode($msgS) . '&error=' . urlencode($msgR));
     exit();
 }
 ?>

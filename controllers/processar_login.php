@@ -3,7 +3,7 @@
 session_start();
 
 // Incluindo o arquivo de conexão com o banco de dados
-include 'config.php';
+include '../config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recebendo os dados do formulário de login

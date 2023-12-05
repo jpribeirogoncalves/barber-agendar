@@ -54,7 +54,7 @@
     <br>
     <div class="container mt-5">
       <?php
-          include 'config.php';
+          include '../config/config.php';
 
           $dias_exibir = 7; 
 

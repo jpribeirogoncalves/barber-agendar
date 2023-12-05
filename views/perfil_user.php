@@ -8,36 +8,16 @@ if (!isset($_SESSION['usuario_logado'])) {
 }
 
 // Inclua o arquivo de configuração do banco de dados e outras funcionalidades necessárias
-include 'config.php';
+include '../config/config.php';
 
-// Inicializa as variáveis
+// Inicializa as variáveis de nome e email
 $nome = $email = '';
-$msgR = '';
 
-// Verifica se o formulário foi submetido
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Coleta os dados do formulário
+// Verifica se $_SESSION['user_id'] está definido antes de usá-lo
+if (isset($_SESSION['usuario_id'])) {
     $user_id = $_SESSION['usuario_id'];
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
 
-    // Atualiza os dados do usuário no banco de dados
-    $query_update = "UPDATE usuarios SET nome = ?, email = ? WHERE id = ?";
-    $stmt = $conn->prepare($query_update);
-    $stmt->bind_param("ssi", $nome, $email, $user_id);
-
-    if ($stmt->execute()) {
-        $msgS = "Perfil atualizado com sucesso!";
-    } else {
-        $msgR = "Erro ao atualizar o perfil: " . $stmt->error;
-    }
-
-    // Fecha a conexão e o statement
-    $stmt->close();
-    $conn->close();
-} else {
     // Consulta para obter os detalhes do usuário a partir do banco de dados
-    $user_id = $_SESSION['usuario_id'];
     $query_user = "SELECT nome, email FROM usuarios WHERE id = $user_id";
     $result_user = $conn->query($query_user);
 
@@ -52,12 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Perfil</title>
+    <title>Perfil do Usuário</title>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 
@@ -80,34 +62,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </nav>
+
     <br>
     <br>
     <br>
+
     <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h2 class="text-center mb-4">Editar Perfil</h2>
-                <?php
-                if (!empty($msgS)) {
-                    echo '<div class="alert alert-success" role="alert">' . $msgS . '</div>';
-                } elseif (!empty($msgR)) {
-                    echo '<div class="alert alert-danger" role="alert">' . $msgR . '</div>';
-                }
-                ?>
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                    <div class="mb-3">
-                        <label for="nome" class="form-label">Nome:</label>
-                        <input type="text" id="nome" name="nome" class="form-control" value="<?php echo $nome; ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email:</label>
-                        <input type="email" id="email" name="email" class="form-control" value="<?php echo $email; ?>" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                </form>
-                <p class="mt-3"><a href="perfil_user.php">Voltar para o Perfil</a></p>
+
+        <!-- Dados do usuário em uma lista -->
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Dados do Usuário</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Nome:</strong> <?php echo $nome; ?></li>
+                    <li class="list-group-item"><strong>E-mail:</strong> <?php echo $email; ?></li>
+                    <!-- Outros campos do perfil -->
+                </ul>
+                <a href="editar_perfil.php" class="btn btn-success mt-3">Editar</a>
+                <a href="#" class="btn btn-warning mt-3">Redefinir senha</a>
             </div>
         </div>
     </div>
+
+
+    <script src="https://unpkg.com/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
