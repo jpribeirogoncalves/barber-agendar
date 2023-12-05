@@ -14,38 +14,55 @@ if (!isset($_SESSION['usuario_logado'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbearia Garagem</title>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-          <a class="navbar-brand" href="#">Barbearia Garagem</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Barbearia Garagem</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="agendar.php">Agendar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="horarios_marcados.php">Horarios agendados</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Fotos</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Sair</a>
-                    </li>
-                </ul>
-          </div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="agendar.php">
+                        <i class="far fa-calendar-alt"></i> <!-- Ícone de calendário -->
+                        Agendar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="horarios_marcados.php">
+                        <i class="far fa-clock"></i> <!-- Ícone de relógio -->
+                        Horários agendados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="perfil_user.php">
+                        <i class="far fa-user"></i> <!-- Ícone de usuário -->
+                        Perfil
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="far fa-images"></i> <!-- Ícone de fotos -->
+                        <!-- Fotos
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">
+                        <i class="fas fa-sign-out-alt"></i> <!-- Ícone de saída -->
+                        Sair
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
     <br>
     <br>
     <br>

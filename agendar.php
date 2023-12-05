@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['usuario_logado'])) {
+    header('Location: login.php');
+    exit();
+}
+
 $msgS = isset($_GET['success']) ? urldecode($_GET['success']) : '';
 $msgR = isset($_GET['error']) ? urldecode($_GET['error']) : '';
 
@@ -16,22 +21,28 @@ unset($_GET['error']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar Corte</title>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="index.php">Barbearia Garagem</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
+            <a class="navbar-brand" href="#">Barbearia Garagem</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Início</a>
+                        <a class="nav-link" href="index.php">
+                            <i class="fas fa-home"></i> <!-- Ícone de casa -->
+                            Início
+                        </a>
                     </li>
                 </ul>
-          </div>
+            </div>
         </div>
     </nav>
     <br>
