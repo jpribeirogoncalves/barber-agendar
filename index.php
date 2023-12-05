@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['usuario_logado'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -19,7 +28,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Início</a>
+                        <a class="nav-link" href="index.php">Início</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="agendar.php">Agendar</a>
@@ -30,6 +39,9 @@
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Fotos</a>
                     </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Sair</a>
+                    </li>
                 </ul>
           </div>
         </div>
@@ -40,11 +52,9 @@
     <main class="py-5">
         <div class="container">
             <section class="mb-5">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h2>Agende seu corte</h2>
-                        <a href="agendar.php" class="btn btn-primary">Agendar</a>
-                    </div>
+                <div class="text-center">
+                    <h1>Bem-vindo, <?php echo $_SESSION['usuario_nome']; ?>!</h1>
+                    <p>Esta é a página inicial do sistema.</p>
                 </div>
             </section>
 
